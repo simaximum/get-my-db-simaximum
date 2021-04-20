@@ -29,7 +29,7 @@ class Stats(db.Model):
     p2p = db.Column(db.BigInteger)
     sessions = db.Column(db.Integer)
 
-    def __init__(self, Time, customer, content, cdn, p2p):
+    def __init__(self, Time, customer, content, cdn, p2p, sessions):
         self.Time = Time
         self.customer = customer
         self.content = content
