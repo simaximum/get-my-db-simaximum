@@ -19,9 +19,9 @@ res.text
 ```
 
 
-### How to query the table
+### How do I query the table?
 
-In shell:
+In my shell:
 
 ```shell
 heroku pg:psql --app get-my-db-simaximum-2
