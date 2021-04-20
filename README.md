@@ -2,7 +2,7 @@
 
 https://get-my-db-simaximum-2.herokuapp.com/stats
 
-### How to send a payload?
+### How do I send a payload?
 
 In python:
 
