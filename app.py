@@ -27,6 +27,7 @@ class Stats(db.Model):
     content = db.Column(db.String(200), primary_key=True)
     cdn = db.Column(db.BigInteger)
     p2p = db.Column(db.BigInteger)
+    sessions = db.Column(db.Integer)
 
     def __init__(self, Time, customer, content, cdn, p2p):
         self.Time = Time
@@ -34,6 +35,7 @@ class Stats(db.Model):
         self.content = content
         self.cdn = cdn
         self.p2p = p2p
+        self.sessions = sessions
 
 def round_minutes(dt):
     # First zero out seconds and micros
@@ -66,12 +68,18 @@ def add_message():
     record = q.first()
 
     if not record:
-        data = Stats(window, customer, content, cdn, p2p)
+        if sessionDuration == 0 : 
+            sessions = 1
+        else: 
+            sessions = 0
+        data = Stats(window, customer, content, cdn, p2p, sessions)
         db.session.add(data)
         db.session.commit()
         return 'A row has been inserted'
     
     else:
+        if sessionDuration == 0 :
+            record.sessions = record.sessions + 1
         record.cdn = record.cdn + cdn
         record.p2p = record.p2p + p2p
         db.session.commit()
