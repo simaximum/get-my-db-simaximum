@@ -1,8 +1,8 @@
-## Where is the app hosted?
+### Where is the app hosted?
 
 https://get-my-db-simaximum-2.herokuapp.com/
 
-## How to send a payload?
+### How to send a payload?
 
 In python:
 
