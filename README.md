@@ -1,0 +1,30 @@
+## Where is the app hosted?
+
+https://get-my-db-simaximum-2.herokuapp.com/
+
+## How to send a payload?
+
+In python:
+
+```python
+import requests
+
+json_ex = {"token":"azerty", "customer":"tf1", "content":"kohlanta", "timespan":30000, "p2p":456, "cdn":123, "sessionDuration": 120000}
+
+res = requests.post('https://get-my-db-simaximum-2.herokuapp.com/stats', json=json_ex)
+
+res.ok
+
+res.text
+```
+
+
+### How to query the table
+
+In shell:
+
+```shell
+heroku pg:psql --app get-my-db-simaximum-2
+
+select * from stats;
+```
