@@ -20,8 +20,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Feedback(db.Model):
-    __tablename__ = 'stats_1'
+class Stats(db.Model):
+    __tablename__ = 'stats'
     Time = db.Column(db.DateTime, primary_key=True)
     customer = db.Column(db.String(200), primary_key=True)
     content = db.Column(db.String(200), primary_key=True)
@@ -61,12 +61,12 @@ def add_message():
     sessionDuration = payload['sessionDuration']
     window = round_minutes(datetime.now())
 
-    q = db.session.query(Feedback)
-    q = q.filter(Feedback.Time == window, Feedback.customer == customer, Feedback.content == content)
+    q = db.session.query(Stats)
+    q = q.filter(Stats.Time == window, Stats.customer == customer, Stats.content == content)
     record = q.first()
 
     if not record:
-        data = Feedback(window, customer, content, cdn, p2p)
+        data = Stats(window, customer, content, cdn, p2p)
         db.session.add(data)
         db.session.commit()
         return 'A row has been inserted'
