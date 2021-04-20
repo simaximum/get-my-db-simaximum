@@ -12,7 +12,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/db_1'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://naodrvfvjqlazl:'+\
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://naodrvfvjqlazl:'+\
         '78e98cd23a41fc23c4edb95c1328d09dbd0dfcecbdcfa25adbe3ffbdd22e1316'+\
             '@ec2-54-166-167-192.compute-1.amazonaws.com:5432/d2mbesr5thn7fv'
 
