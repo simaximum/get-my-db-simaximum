@@ -1,6 +1,6 @@
-### Where is the app hosted?
+### Where is the endpoint hosted?
 
-https://get-my-db-simaximum-2.herokuapp.com/
+https://get-my-db-simaximum-2.herokuapp.com/stats
 
 ### How to send a payload?
 
