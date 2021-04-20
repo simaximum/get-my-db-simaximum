@@ -68,7 +68,7 @@ def add_message():
     record = q.first()
 
     if not record:
-        if sessionDuration == 0 : 
+        if sessionDuration == 30000 : 
             sessions = 1
         else: 
             sessions = 0
@@ -78,7 +78,7 @@ def add_message():
         return 'A row has been inserted'
     
     else:
-        if sessionDuration == 0 :
+        if sessionDuration == 30000 :
             record.sessions = record.sessions + 1
         record.cdn = record.cdn + cdn
         record.p2p = record.p2p + p2p
